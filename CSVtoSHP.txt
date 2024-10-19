@@ -1,0 +1,28 @@
+import geopandas as gpd
+from shapely.geometry import Polygon
+import pandas as pd
+import ast
+
+# Load the cleaned Excel file
+df = pd.read_excel("C:/Users/nicor/Downloads/cleaned_roi_coordinates.xlsx")
+
+# Convert string representations of lists into actual lists
+df['X_Coords_List'] = df['X_Coords_List'].apply(ast.literal_eval)
+df['Y_Coords_List'] = df['Y_Coords_List'].apply(ast.literal_eval)
+
+# Function to convert X and Y coordinate lists into a Polygon
+def create_polygon(x_coords, y_coords):
+    # Combine X and Y into (x, y) tuples
+    polygon_points = [(x, y) for x, y in zip(x_coords, y_coords)]
+    return Polygon(polygon_points)
+
+# Now create the GeoDataFrame after the function is defined
+gdf = gpd.GeoDataFrame(df, geometry=df.apply(lambda row: create_polygon(row['X_Coords_List'], row['Y_Coords_List']), axis=1))
+
+# Set the Coordinate Reference System (CRS), assuming WGS 84 (EPSG:4326)
+gdf.set_crs(epsg=3857, inplace=True)
+
+# Save the GeoDataFrame as a shapefile
+gdf.to_file("C:/Users/nicor/Downloads/output_roi_polygons.shp")
+
+print("Shapefile created successfully!")
