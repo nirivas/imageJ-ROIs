@@ -1,7 +1,7 @@
 # imageJ-ROIs
 Scripts to convert ROIs to csvs, csvs to shapefiles using JAVA and Python
 
-Dependencies that need to be installed are  ***geopandas, shapely.geometry, Polygon, pandas, ast, argparse, os***
+Dependencies that need to be installed are  **geopandas, shapely.geometry, Polygon, pandas, ast, argparse, os**
 
 # To create a shapefile: 
 
@@ -26,6 +26,8 @@ A) To create a shapefile
 This will create a clean csv with the ROI coordinates and a shapefile in the same location as input file
 
 # To create a SVG
+
+**Need to download and move jfreesvg (https://www.jfree.org/jfreesvg/) into Image-J/FIJI plugin folder**
 
   1. Open image and ROI manager in Image-J/FIGI
   2. Opel File-> New Script and switch the language to python
