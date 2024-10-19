@@ -13,7 +13,7 @@ if (rois.length == 0) {
 }
 
 // Create a file to save the ROI coordinates
-output_file = new FileWriter("C:/Users/nicor/Downloads/roi_coordinates.csv");
+output_file = new FileWriter("C:/Users.../roi_coordinates.csv");
 buffered_writer = new BufferedWriter(output_file);
 
 // Write header to the CSV file
