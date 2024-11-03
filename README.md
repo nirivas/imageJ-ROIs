@@ -9,7 +9,7 @@ A) To create a shapefile
 
   1. Open image and ROI manager in Imaje-J/FIJI
   2. Open File->New Script and switch the Language to JavaScript
-  3. Copy paste "Coordinate_extractor_IMAGEJ_ROI code into the editor (or open file)
+  3. Copy paste "Coordinate_extractor_IMAGEJ_ROI_V2 code into the editor (or open file)
   4. Change the output destination and name on line 16
 
      `output_file = new FileWriter("C:/Users.../roi_coordinates.csv");`
